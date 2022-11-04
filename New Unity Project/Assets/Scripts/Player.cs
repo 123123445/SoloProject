@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
     public int maxHp;
     public int speed;
 
-    public LayerMask layer;
-    
+    public LayerMask mask;
+
     [SerializeField] Vector3 mousePosition;
     Camera _camera;
 
@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Move();
-        Debug.Log(_camera.ScreenToWorldPoint(mousePosition));
     }
 
     public void Move()
@@ -36,11 +35,17 @@ public class Player : MonoBehaviour
             mousePosition = Vector3.one;
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit,layer))
+            if (Physics.Raycast(ray, out hit, mask))
             {
+                Debug.Log("Floor");
                 mousePosition = hit.point;
+                agent.SetDestination(mousePosition);
+                if(mousePosition == agent.gameObject.transform.position)
+                {
+                    Debug.Log("Stop");
+                    agent.isStopped = true;
+                }
             }
-            agent.SetDestination(mousePosition);
         }
     } 
 }

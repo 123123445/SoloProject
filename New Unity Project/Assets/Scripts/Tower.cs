@@ -3,13 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
-{
-    public static Tower intance;
-
-    private void Awake()
-    {
-        intance = this;
-    }
+{ 
 
     public float time;
     public float maxTime = 2;
@@ -33,6 +27,7 @@ public class Tower : MonoBehaviour
         {
             GameObject bullet = Instantiate(bullets);
             bullet.transform.position = pos.transform.position;
+            bullet.GetComponent<Bullets>()._target = target;
             time = 0;
         }
     }
@@ -41,6 +36,7 @@ public class Tower : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Player µé¾î¿È");
             target = other.gameObject;
         }
     }

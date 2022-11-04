@@ -10,7 +10,6 @@ public class Bullets : MonoBehaviour
     private void Awake()
     {
         Debug.Log("Bullet");
-        _target = Tower.intance.target;
     }
 
     private void Update()
