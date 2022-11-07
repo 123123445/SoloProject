@@ -5,16 +5,14 @@ using UnityEngine.AI;
 
 public class Test : MonoBehaviour
 {
-    NavMeshAgent agent;
-    public GameObject target;
-
-    private void Awake()
-    {
-        agent = GetComponent<NavMeshAgent>();
+    void Update() {
+    RaycastHit hit;
+    float distance = 10f;
+    int layerMask = 1 << LayerMask.NameToLayer("Floor");  // Player 레이어만 충돌 체크함
+    if(Physics.Raycast (transform.position, transform.TransformDirection (Vector3.forward), out hit, distance  ,layerMask)){
+        Debug.Log("hit");
     }
 
-    private void Update()
-    {
-        agent.SetDestination(target.transform.position);
+    Debug.DrawRay(transform.position, transform.forward * 15, Color.red);
     }
 }

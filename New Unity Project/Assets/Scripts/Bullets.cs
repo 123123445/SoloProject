@@ -7,11 +7,6 @@ public class Bullets : MonoBehaviour
     public GameObject _target;
     public int speed;
 
-    private void Awake()
-    {
-        Debug.Log("Bullet");
-    }
-
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, speed * Time.deltaTime);

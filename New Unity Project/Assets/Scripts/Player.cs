@@ -9,8 +9,6 @@ public class Player : MonoBehaviour
     public int maxHp;
     public int speed;
 
-    public LayerMask mask;
-
     [SerializeField] Vector3 mousePosition;
     Camera _camera;
 
@@ -35,7 +33,8 @@ public class Player : MonoBehaviour
             mousePosition = Vector3.one;
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, mask))
+            int layerMask = 1 << LayerMask.NameToLayer("Floor");
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
             {
                 Debug.Log("Floor");
                 mousePosition = hit.point;
