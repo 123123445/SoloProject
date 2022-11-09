@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     Vector3 mousePosition;
 
-    [SerializeField] private Sprite sprite; //캐릭터 스프라이트를 담을 리스트
+    public Sprite sprite; //캐릭터 스프라이트를 담을 리스트
 
     public List<Sprite> spriteList = new List<Sprite>();
 
@@ -63,5 +64,10 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void LoadMain()
+    {
+        SceneManager.LoadScene("Main");
     }
 }
