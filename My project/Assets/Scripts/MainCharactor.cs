@@ -9,6 +9,9 @@ public class MainCharactor : MonoBehaviour
     public float jumpPower;
     [SerializeField] private bool isCanJump = true;
 
+    bool leftMove;
+    bool rightMove;
+
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator animator;
@@ -43,31 +46,58 @@ public class MainCharactor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
-    }
-
-    public void Move()
-    {
-        h = Input.GetAxisRaw("Horizontal");
-        transform.position = transform.position + new Vector3(h, 0) * Time.deltaTime * speed;
-        animator.SetInteger("isMove", (int)h);
-        if(h < 0)
+        if (leftMove)
         {
+            transform.position = transform.position + new Vector3(-1, 0) * Time.deltaTime * speed;
+            animator.SetInteger("isMove", -1);
             spriteRenderer.flipX = true; ;
+        }else if (rightMove)
+        {
+            transform.position = transform.position + new Vector3(1, 0) * Time.deltaTime * speed;
+            animator.SetInteger("isMove", 1);
+            spriteRenderer.flipX = false;
         }
         else
         {
-            spriteRenderer.flipX = false;
+            animator.SetInteger("isMove", 0);
         }
-        Jump();
     }
 
     public void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (isCanJump)
         {
-
             rigid.AddForce(Vector3.up * jumpPower);
+            animator.SetTrigger("Jump");
+            isCanJump= false;
+        }
+    }
+
+    public void LeftMoveDown()
+    {
+        leftMove = true;
+    }
+
+    public void LeftMoveUp()
+    {
+        leftMove = false;
+    }
+
+    public void RightMoveDown()
+    {
+        rightMove = true;
+    }
+
+    public void RightMoveUp()
+    {
+        rightMove = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            isCanJump = true;
         }
     }
 }
