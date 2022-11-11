@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MainCharactor : MonoBehaviour
 {
+    public int nowHp;
+    public int maxHp;
+
     float h;
     public float speed;
     public float jumpPower;
@@ -19,6 +22,7 @@ public class MainCharactor : MonoBehaviour
 
     private void Awake()
     {
+        nowHp = maxHp;
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator= GetComponent<Animator>();
@@ -46,6 +50,8 @@ public class MainCharactor : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Move();
+        KeyJump();
         if (leftMove)
         {
             transform.position = transform.position + new Vector3(-1, 0) * Time.deltaTime * speed;
@@ -98,6 +104,23 @@ public class MainCharactor : MonoBehaviour
         if (collision.gameObject.CompareTag("Floor"))
         {
             isCanJump = true;
+        }
+    }
+
+    void Move()
+    {
+        h = Input.GetAxisRaw("Horizontal");
+
+        transform.position = transform.position + new Vector3(h, 0, 0) * Time.deltaTime * speed;
+    }
+
+    void KeyJump()
+    {
+        if (isCanJump && Input.GetButtonDown("Jump"))
+        {
+            rigid.AddForce(Vector3.up * jumpPower);
+            animator.SetTrigger("Jump");
+            isCanJump = false;
         }
     }
 }
