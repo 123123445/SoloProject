@@ -45,7 +45,6 @@ public class MainCharactor : MonoBehaviour
             {
                 animator.runtimeAnimatorController = animatorList[2];
             }
-            animator.SetBool("isMove", true);
         }
     }
 
