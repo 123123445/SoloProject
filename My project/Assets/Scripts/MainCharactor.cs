@@ -45,6 +45,7 @@ public class MainCharactor : MonoBehaviour
             {
                 animator.runtimeAnimatorController = animatorList[2];
             }
+            animator.SetBool("isMove", true);
         }
     }
 
@@ -55,17 +56,9 @@ public class MainCharactor : MonoBehaviour
         if (leftMove)
         {
             transform.position = transform.position + new Vector3(-1, 0) * Time.deltaTime * speed;
-            animator.SetInteger("isMove", -1);
-            spriteRenderer.flipX = true; ;
         }else if (rightMove)
         {
             transform.position = transform.position + new Vector3(1, 0) * Time.deltaTime * speed;
-            animator.SetInteger("isMove", 1);
-            spriteRenderer.flipX = false;
-        }
-        else
-        {
-            animator.SetInteger("isMove", 0);
         }
     }
 
