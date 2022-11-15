@@ -5,7 +5,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
-{ 
+{
+    public float speed;
+    public float maxSpeed;
+
     Vector3 mousePosition;
 
     public Sprite sprite; //캐릭터 스프라이트를 담을 리스트
@@ -70,6 +73,10 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            PlayTime();
+        }
     }
 
     public void LoadMain()
@@ -77,6 +84,18 @@ public class GameManager : MonoBehaviour
         if (charactor != null)
         {
             SceneManager.LoadScene("Main");
+        }
+    }
+
+    public void PlayTime()
+    {
+        if (speed <= maxSpeed)
+        {
+            speed += Time.deltaTime * 0.1f;
+        }
+        else
+        {
+            speed = maxSpeed;
         }
     }
 }

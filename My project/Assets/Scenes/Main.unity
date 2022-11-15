@@ -901,6 +901,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1068129179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1068129180}
+  m_Layer: 0
+  m_Name: ObstaclePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1068129180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068129179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15, y: -0.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1147232682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1249,7 @@ GameObject:
   - component: {fileID: 1361383202}
   - component: {fileID: 1361383205}
   m_Layer: 0
-  m_Name: Tilemap (1)
+  m_Name: Map2
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1663,6 +1694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  maxSpeed: 100
 --- !u!1 &1804637967
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,7 +1709,7 @@ GameObject:
   - component: {fileID: 1804637969}
   - component: {fileID: 1804637972}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: Map1
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2070,6 +2102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  maxSpeed: 100
 --- !u!1 &1817818905
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,6 +2132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c077834860750d49bd03658c980d511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  maxSpeed: 0
   sprite: {fileID: 0}
   charactor: {fileID: 0}
   spriteList: []
@@ -2420,3 +2455,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071450127}
   m_CullTransparentMesh: 1
+--- !u!1 &2114844227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2114844229}
+  - component: {fileID: 2114844228}
+  m_Layer: 0
+  m_Name: ObstacleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2114844228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114844227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b203a6d47b20940864a4772d56e7f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleList:
+  - {fileID: 2922117160676918790, guid: 519fbc03195fa9b45a4ce69fb2b89c3c, type: 3}
+  - {fileID: 3046543013351392500, guid: 59210fba3cae7014382fbd27eb3e41af, type: 3}
+  pos: {fileID: 1068129180}
+--- !u!4 &2114844229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114844227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8693566, y: 0.732582, z: -0.02877276}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
