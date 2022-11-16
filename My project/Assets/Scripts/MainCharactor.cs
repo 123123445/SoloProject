@@ -7,26 +7,58 @@ public class MainCharactor : MonoBehaviour
     public int nowHp;
     public int maxHp;
 
-    float h;
+    public float invincibilityTime;
+    public float MaxInvincibilityTime = 1;
+
     public float speed;
     public float jumpPower;
-    [SerializeField] private bool isCanJump = true;
+    float h;
 
+    public bool isCanHit = true;
     bool leftMove;
     bool rightMove;
+    [SerializeField] private bool isCanJump = true;
+
 
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator animator;
     public List<RuntimeAnimatorController> animatorList = new List<RuntimeAnimatorController>();
 
+
+    #region Singleton
+    public static MainCharactor instance = null;
+
     private void Awake()
     {
         nowHp = maxHp;
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator= GetComponent<Animator>();
+        animator = GetComponent<Animator>();
+
+        if (null == instance)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
+
+    public static MainCharactor Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+    #endregion
 
     private void Start()
     {
@@ -59,6 +91,11 @@ public class MainCharactor : MonoBehaviour
         {
             transform.position = transform.position + new Vector3(1, 0) * Time.deltaTime * speed;
         }
+    }
+
+    private void Update()
+    {
+        Hit();
     }
 
     public void Jump()
@@ -113,6 +150,19 @@ public class MainCharactor : MonoBehaviour
             rigid.AddForce(Vector3.up * jumpPower);
             animator.SetTrigger("Jump");
             isCanJump = false;
+        }
+    }
+
+    public void Hit()
+    {
+        if (isCanHit == false)
+        {
+            invincibilityTime += Time.deltaTime;
+            if (invincibilityTime >= MaxInvincibilityTime)
+            {
+                invincibilityTime = 0;
+                isCanHit = true;
+            }
         }
     }
 }
