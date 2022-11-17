@@ -157,6 +157,7 @@ public class MainCharactor : MonoBehaviour
     {
         if (isCanHit == false)
         {
+            StartCoroutine("HitColor");
             invincibilityTime += Time.deltaTime;
             if (invincibilityTime >= MaxInvincibilityTime)
             {
@@ -164,5 +165,13 @@ public class MainCharactor : MonoBehaviour
                 isCanHit = true;
             }
         }
+    }
+
+    IEnumerator HitColor()
+    {
+        spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        spriteRenderer.color = new Color(1, 1, 1, 1);
+        yield return new WaitForSeconds(0.5f);
     }
 }

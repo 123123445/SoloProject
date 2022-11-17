@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3336891832665630251}
   - component: {fileID: 8120297647508006665}
   - component: {fileID: 7184757419159591551}
-  - component: {fileID: 1547596892090332499}
+  - component: {fileID: 2175786409015146296}
   m_Layer: 0
   m_Name: Nature_props_21
   m_TagString: Untagged
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71546a58ee97f6345ab4a9ebd102fd7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &1547596892090332499
-BoxCollider2D:
+--- !u!60 &2175786409015146296
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -121,6 +121,15 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.25, y: 0.8958333}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.21443081, y: 0.4472154}
+      - {x: -0.13971965, y: 0.43165365}
+      - {x: -0.3062188, y: 0.19133848}
+      - {x: -0.6235447, y: -0.11381122}
+      - {x: -0.6204748, y: -0.3845631}
+      - {x: -0.5369253, y: -0.4588141}
+      - {x: 0.625, y: -0.4479167}
+      - {x: 0.44260597, y: -0.22314043}
+      - {x: 0.33832264, y: 0.031086683}
+      - {x: 0.29093808, y: 0.2952139}
