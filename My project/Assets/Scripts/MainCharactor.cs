@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainCharactor : MonoBehaviour
 {
@@ -164,6 +165,11 @@ public class MainCharactor : MonoBehaviour
                 invincibilityTime = 0;
                 isCanHit = true;
             }
+        }
+        if(nowHp <= 0 && SceneManager.GetActiveScene().name == "Main")
+        {
+            SceneManager.LoadScene("GameOver");
+            gameObject.SetActive(false);
         }
     }
 
