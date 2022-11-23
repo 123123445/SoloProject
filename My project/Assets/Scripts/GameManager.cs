@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     Vector3 mousePosition;
 
     public Sprite sprite; //캐릭터 스프라이트를 담을 리스트
-    [SerializeField] GameObject charactor;
+    public GameObject charactor;
 
     public List<Sprite> spriteList = new List<Sprite>();
 
@@ -79,14 +79,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LoadMain()
-    {
-        if (charactor != null)
-        {
-            SceneManager.LoadScene("Main");
-        }
-    }
-
+ 
     public void PlayTime()
     {
         if (speed <= maxSpeed)

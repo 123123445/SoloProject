@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class CharactorImage : MonoBehaviour
 {
-    Image charactor;
+    Image image;
 
     private void Awake()
     {
-        charactor = GetComponent<Image>();
+        image= GetComponent<Image>();
     }
 
-    private void Update()
+    void Update()
     {
-        charactor.sprite = GameManager.instance.sprite;
+        image.sprite = GameManager.Instance.sprite;
     }
 }

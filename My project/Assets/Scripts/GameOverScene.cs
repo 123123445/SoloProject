@@ -8,5 +8,8 @@ public class GameOverScene : MonoBehaviour
     public void LoadCharactor()
     {
         SceneManager.LoadScene("CharactorSelect");
+        MainCharactor.instance.gameObject.SetActive(true);
+        MainCharactor.instance.nowHp = MainCharactor.instance.maxHp;
+
     }
 }
