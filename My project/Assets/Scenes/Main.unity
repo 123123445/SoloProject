@@ -470,13 +470,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645fc3a6671985e459ff09825ae02cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nowHp: 0
+  nowHp: 3
   maxHp: 3
   invincibilityTime: 0
   MaxInvincibilityTime: 1
   speed: 5
   jumpPower: 350
   isCanHit: 1
+  isDie: 0
   isCanJump: 1
   animatorList:
   - {fileID: 9100000, guid: 00ae5589d2fbc0d40a2ef0a433cea924, type: 2}

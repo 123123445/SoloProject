@@ -16,6 +16,7 @@ public class MainCharactor : MonoBehaviour
     float h;
 
     public bool isCanHit = true;
+    public bool isDie = false;
     bool leftMove;
     bool rightMove;
     [SerializeField] private bool isCanJump = true;
@@ -166,10 +167,11 @@ public class MainCharactor : MonoBehaviour
                 isCanHit = true;
             }
         }
-        if(nowHp <= 0 && SceneManager.GetActiveScene().name == "Main")
+        if(nowHp <= 0 && SceneManager.GetActiveScene().name == "Main" && !isDie)
         {
-            SceneManager.LoadScene("GameOver");
-            gameObject.SetActive(false);
+            animator.SetTrigger("Die");
+            isDie = true;
+            GameManager.instance.speed = 0f;
         }
     }
 

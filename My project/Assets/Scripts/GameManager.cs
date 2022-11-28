@@ -75,7 +75,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            PlayTime();
+            if(!MainCharactor.instance.isDie)
+                PlayTime();
         }
     }
 

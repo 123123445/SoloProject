@@ -18,8 +18,10 @@ public class Score : MonoBehaviour
 
     private void Update()
     {
-        _score += 2 * speed;
-        text.text = _score.ToString("N0");
+        if (!MainCharactor.instance.isDie)
+        {
+            _score += 2 * speed;
+            text.text = _score.ToString("N0");
+        }
     }
-
 }

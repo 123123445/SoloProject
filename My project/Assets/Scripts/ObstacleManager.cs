@@ -18,6 +18,10 @@ public class ObstacleManager : MonoBehaviour
         {
             Instantiate(obstacleList[Random.Range(0, obstacleList.Count)], pos.position, Quaternion.identity);
             yield return new WaitForSeconds(3f);
+            if (MainCharactor.instance.isDie)
+            {
+                StopCoroutine("ObstacleCreate");
+            }
         }
     }
 }
