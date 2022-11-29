@@ -2693,6 +2693,7 @@ MonoBehaviour:
   obstacleList:
   - {fileID: 2922117160676918790, guid: 519fbc03195fa9b45a4ce69fb2b89c3c, type: 3}
   - {fileID: 3046543013351392500, guid: 59210fba3cae7014382fbd27eb3e41af, type: 3}
+  - {fileID: 4735546064437897532, guid: ea358355e3bfb87499b043e8355e9dee, type: 3}
   pos: {fileID: 1068129180}
 --- !u!4 &2114844229
 Transform:
