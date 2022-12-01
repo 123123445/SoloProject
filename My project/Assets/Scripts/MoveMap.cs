@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveMap : MonoBehaviour
-{
-    public float speed;
-    public float maxSpeed;
-
+{ 
     private void Update()
     {
         if (transform.position.x <= -21.79)
