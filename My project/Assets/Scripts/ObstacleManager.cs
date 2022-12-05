@@ -6,6 +6,7 @@ public class ObstacleManager : MonoBehaviour
 {
     public List<GameObject> obstacleList = new List<GameObject>();
     public Transform pos;
+    public float speed;
 
     private void Awake()
     {
@@ -16,12 +17,13 @@ public class ObstacleManager : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(obstacleList[Random.Range(0, obstacleList.Count)], pos.position, Quaternion.identity);
-            yield return new WaitForSeconds(3f);
             if (MainCharactor.instance.isDie)
             {
                 StopCoroutine("ObstacleCreate");
             }
+            Instantiate(obstacleList[Random.Range(0, obstacleList.Count)], pos.position, Quaternion.identity);
+            speed = (Random.Range(1, 3) / GameManager.instance.speed) * 10;
+            yield return new WaitForSeconds(speed);
         }
     }
 }

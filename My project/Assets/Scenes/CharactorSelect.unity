@@ -1322,7 +1322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  maxSpeed: 100
+  maxSpeed: 20
   image: {fileID: 730031210}
   sprite: {fileID: 0}
   charactor: {fileID: 0}

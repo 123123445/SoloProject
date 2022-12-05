@@ -84,8 +84,6 @@ public class MainCharactor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
-        KeyJump();
         if (leftMove)
         {
             transform.position = transform.position + new Vector3(-1, 0) * Time.deltaTime * speed;
@@ -100,6 +98,7 @@ public class MainCharactor : MonoBehaviour
         Hit();
     }
 
+    #region move
     public void Jump()
     {
         if (isCanJump)
@@ -130,28 +129,13 @@ public class MainCharactor : MonoBehaviour
         rightMove = false;
     }
 
+    #endregion
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Floor"))
         {
             isCanJump = true;
-        }
-    }
-
-    void Move()
-    {
-        h = Input.GetAxisRaw("Horizontal");
-
-        transform.position = transform.position + new Vector3(h, 0, 0) * Time.deltaTime * speed;
-    }
-
-    void KeyJump()
-    {
-        if (isCanJump && Input.GetButtonDown("Jump"))
-        {
-            rigid.AddForce(Vector3.up * jumpPower);
-            animator.SetTrigger("Jump");
-            isCanJump = false;
         }
     }
 
@@ -167,7 +151,7 @@ public class MainCharactor : MonoBehaviour
                 isCanHit = true;
             }
         }
-        if(nowHp <= 0 && SceneManager.GetActiveScene().name == "Main" && !isDie)
+        if(nowHp <= 0 && !isDie)
         {
             animator.SetTrigger("Die");
             isDie = true;
