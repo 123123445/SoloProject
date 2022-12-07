@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,14 +11,13 @@ public class GameManager : MonoBehaviour
     public float speed;
     public float maxSpeed;
 
-    public Image image;
-
     Vector3 mousePosition;
 
     public Sprite sprite; //캐릭터 스프라이트를 담을 리스트
     public GameObject charactor;
 
     public List<Sprite> spriteList = new List<Sprite>();
+    public List<GameObject> arrow = new List<GameObject>();
 
     #region Singleton
     public static GameManager instance = null;
@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "CharactorSelect")
         {
-            image.gameObject.GetComponent<Image>().sprite= sprite;
 
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);    //좌표 변경
             if (Input.GetMouseButtonDown(0))
@@ -62,7 +61,6 @@ public class GameManager : MonoBehaviour
                 if (hit)    //레이가 무언가를 감지하면
                 {
                     charactor = hit.transform.gameObject;
-                    image.color = new Color(1, 1, 1, 1);
 
                     if (hit.transform.gameObject.name == "Pink") //캐릭터별로 스프라이트 가져오기
                     {
@@ -98,4 +96,11 @@ public class GameManager : MonoBehaviour
             speed = maxSpeed;
         }
     }
+
+    public void Arrow(GameObject obj)
+    {
+        Vector2 arrowTransform = obj.transform.position;
+        //arrowTransform = Vector2.Lerp(new Vector2(arrowTransform.x, 50), new Vector2(arrowTransform.x, 45));z
+    }
+
 }

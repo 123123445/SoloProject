@@ -84,12 +84,16 @@ public class MainCharactor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (leftMove)
+        if (!isDie)
         {
-            transform.position = transform.position + new Vector3(-1, 0) * Time.deltaTime * speed;
-        }else if (rightMove)
-        {
-            transform.position = transform.position + new Vector3(1, 0) * Time.deltaTime * speed;
+            if (leftMove)
+            {
+                transform.position = transform.position + new Vector3(-1, 0) * Time.deltaTime * speed;
+            }
+            else if (rightMove)
+            {
+                transform.position = transform.position + new Vector3(1, 0) * Time.deltaTime * speed;
+            }
         }
     }
 
@@ -101,7 +105,7 @@ public class MainCharactor : MonoBehaviour
     #region move
     public void Jump()
     {
-        if (isCanJump)
+        if (isCanJump && !isDie)
         {
             rigid.AddForce(Vector3.up * jumpPower);
             animator.SetTrigger("Jump");

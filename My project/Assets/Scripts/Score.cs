@@ -9,12 +9,39 @@ public class Score : MonoBehaviour
 {
     public float _score;
     public float speed;
-    TextMeshProUGUI text;
+    public TextMeshProUGUI text;
+
+    #region Singleton
+
+    public static Score instance = null;
 
     private void Awake()
     {
-        text= GetComponent<TextMeshProUGUI>();
+        text = GetComponent<TextMeshProUGUI>();
+
+        if (null == instance)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
+
+    public static Score Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+    #endregion
 
     private void Update()
     {

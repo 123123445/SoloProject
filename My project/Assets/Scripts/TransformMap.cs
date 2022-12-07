@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveMap : MonoBehaviour
-{ 
+public class TransformMap : MonoBehaviour
+{
     private void Update()
-    {
-        if (transform.position.x <= -25)
-        {
-            transform.position = transform.position + new Vector3(40, 0, 0);
-        }
-        else
+    {   
+        if (int.Parse(Score.instance.text.text) >= 100)
         {
             transform.Translate(Vector3.left * Time.deltaTime * GameManager.instance.speed);
         }
