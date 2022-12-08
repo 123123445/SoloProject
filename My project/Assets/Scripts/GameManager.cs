@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject charactor;
 
     public List<Sprite> spriteList = new List<Sprite>();
-    public List<GameObject> arrow = new List<GameObject>();
+    public List<RectTransform> arrow = new List<RectTransform>();
 
     #region Singleton
     public static GameManager instance = null;
@@ -65,14 +66,17 @@ public class GameManager : MonoBehaviour
                     if (hit.transform.gameObject.name == "Pink") //캐릭터별로 스프라이트 가져오기
                     {
                         sprite = spriteList[0];
+                        StartCoroutine(ArrowMove(0));
                     }
                     else if (hit.transform.gameObject.name == "Owlet")
                     {
                         sprite = spriteList[1];
+                        StartCoroutine(ArrowMove(1));
                     }
                     else if (hit.transform.gameObject.name == "Dude")
                     {
                         sprite = spriteList[2];
+                        StartCoroutine(ArrowMove(2));
                     }
                 }
             }
@@ -97,10 +101,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Arrow(GameObject obj)
+    IEnumerator ArrowMove(int a)
     {
-        Vector2 arrowTransform = obj.transform.position;
-        //arrowTransform = Vector2.Lerp(new Vector2(arrowTransform.x, 50), new Vector2(arrowTransform.x, 45));z
+        Vector2 vec2 = new Vector2(0, -0.1f);
+        RectTransform rec = arrow[a].GetComponent<RectTransform>();
+        while (true)
+        {
+            rec.anchoredPosition = rec.anchoredPosition + vec2;
+            if (rec.anchoredPosition.y <= 45)
+            {
+                vec2 = vec2 * -1;
+            }else if(rec.anchoredPosition.y >= 50)
+            {
+                vec2 = vec2 * -1;
+            }
+            yield return null;
+        }
     }
-
 }
