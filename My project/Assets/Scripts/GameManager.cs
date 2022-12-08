@@ -67,16 +67,22 @@ public class GameManager : MonoBehaviour
                     {
                         sprite = spriteList[0];
                         StartCoroutine(ArrowMove(0));
+                        StopCoroutine(ArrowMove(1));
+                        StopCoroutine(ArrowMove(2));
                     }
                     else if (hit.transform.gameObject.name == "Owlet")
                     {
                         sprite = spriteList[1];
                         StartCoroutine(ArrowMove(1));
+                        StopCoroutine(ArrowMove(0));
+                        StopCoroutine(ArrowMove(2));
                     }
                     else if (hit.transform.gameObject.name == "Dude")
                     {
                         sprite = spriteList[2];
                         StartCoroutine(ArrowMove(2));
+                        StopCoroutine(ArrowMove(1));
+                        StopCoroutine(ArrowMove(0));
                     }
                 }
             }
@@ -94,7 +100,7 @@ public class GameManager : MonoBehaviour
         if (speed <= maxSpeed)
         {
             speed += Time.deltaTime * 0.1f;
-        }
+        }   
         else
         {
             speed = maxSpeed;
@@ -103,8 +109,16 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ArrowMove(int a)
     {
-        Vector2 vec2 = new Vector2(0, -0.1f);
+        foreach (var item in arrow)
+        {
+            item.gameObject.SetActive(false);
+            item.anchoredPosition = item.anchoredPosition;
+        }
+
+        arrow[a].gameObject.SetActive(true);
+        Vector2 vec2 = new Vector2(0, -0.05f);
         RectTransform rec = arrow[a].GetComponent<RectTransform>();
+
         while (true)
         {
             rec.anchoredPosition = rec.anchoredPosition + vec2;

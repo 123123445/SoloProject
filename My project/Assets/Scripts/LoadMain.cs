@@ -10,6 +10,7 @@ public class LoadMain : MonoBehaviour
     {
         if (GameManager.Instance.charactor != null)
         {
+            GameManager.instance.StopAllCoroutines();
             SceneManager.LoadScene("Main");
         }
     }
