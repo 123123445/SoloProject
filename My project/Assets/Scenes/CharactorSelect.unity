@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 418953199}
   - component: {fileID: 418953198}
   - component: {fileID: 418953201}
+  - component: {fileID: 418953202}
   m_Layer: 0
   m_Name: Pink
   m_TagString: Untagged
@@ -623,6 +624,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 2}
   m_EdgeRadius: 0
+--- !u!95 &418953202
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418953197}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 00ae5589d2fbc0d40a2ef0a433cea924, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,6 +1407,7 @@ GameObject:
   - component: {fileID: 1199146610}
   - component: {fileID: 1199146609}
   - component: {fileID: 1199146612}
+  - component: {fileID: 1199146613}
   m_Layer: 0
   m_Name: Dude
   m_TagString: Untagged
@@ -1486,6 +1508,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 2}
   m_EdgeRadius: 0
+--- !u!95 &1199146613
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199146608}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1409c9b601831f741afdae0d38b9e9be, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1259084449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,6 +1704,10 @@ MonoBehaviour:
   - {fileID: 533232977}
   - {fileID: 1005397359}
   - {fileID: 652693432}
+  controller:
+  - {fileID: 418953202}
+  - {fileID: 2111817009}
+  - {fileID: 1199146613}
 --- !u!4 &1523940159
 Transform:
   m_ObjectHideFlags: 0
@@ -1861,6 +1907,7 @@ GameObject:
   - component: {fileID: 2111817006}
   - component: {fileID: 2111817005}
   - component: {fileID: 2111817008}
+  - component: {fileID: 2111817009}
   m_Layer: 0
   m_Name: Owlet
   m_TagString: Untagged
@@ -1961,3 +2008,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 2}
   m_EdgeRadius: 0
+--- !u!95 &2111817009
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111817004}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4859f04fe5b175546b6cf5f323b82d14, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

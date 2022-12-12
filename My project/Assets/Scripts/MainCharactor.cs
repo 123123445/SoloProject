@@ -70,14 +70,17 @@ public class MainCharactor : MonoBehaviour
             if (spriteRenderer.sprite.name == "Pink_Monster_0")
             {
                 animator.runtimeAnimatorController = animatorList[0];
+                animator.SetBool("Main", true);
             }
             else if (spriteRenderer.sprite.name == "Owlet_Monster_0")
             {
                 animator.runtimeAnimatorController = animatorList[1];
+                animator.SetBool("Main", true);
             }
             else
             {
                 animator.runtimeAnimatorController = animatorList[2];
+                animator.SetBool("Main", true);
             }
         }
     }

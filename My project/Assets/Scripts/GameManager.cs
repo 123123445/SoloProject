@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public List<Sprite> spriteList = new List<Sprite>();
     public List<RectTransform> arrow = new List<RectTransform>();
+    public List<Animator> controller = new List<Animator>();
 
     #region Singleton
     public static GameManager instance = null;
@@ -66,6 +67,9 @@ public class GameManager : MonoBehaviour
                     if (hit.transform.gameObject.name == "Pink") //캐릭터별로 스프라이트 가져오기
                     {
                         sprite = spriteList[0];
+                        controller[0].SetBool("Idle",true);
+                        controller[1].SetBool("Idle", false);
+                        controller[2].SetBool("Idle", false);
                         StartCoroutine(ArrowMove(0));
                         StopCoroutine(ArrowMove(1));
                         StopCoroutine(ArrowMove(2));
@@ -73,6 +77,9 @@ public class GameManager : MonoBehaviour
                     else if (hit.transform.gameObject.name == "Owlet")
                     {
                         sprite = spriteList[1];
+                        controller[1].SetBool("Idle", true);
+                        controller[0].SetBool("Idle", false);
+                        controller[2].SetBool("Idle", false);
                         StartCoroutine(ArrowMove(1));
                         StopCoroutine(ArrowMove(0));
                         StopCoroutine(ArrowMove(2));
@@ -80,6 +87,9 @@ public class GameManager : MonoBehaviour
                     else if (hit.transform.gameObject.name == "Dude")
                     {
                         sprite = spriteList[2];
+                        controller[2].SetBool("Idle", true);
+                        controller[0].SetBool("Idle", false);
+                        controller[1].SetBool("Idle", false);
                         StartCoroutine(ArrowMove(2));
                         StopCoroutine(ArrowMove(1));
                         StopCoroutine(ArrowMove(0));
