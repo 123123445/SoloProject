@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public Sprite sprite; //캐릭터 스프라이트를 담을 리스트
     public GameObject charactor;
+    public GameObject lastCharactor;
 
     public List<Sprite> spriteList = new List<Sprite>();
     public List<RectTransform> arrow = new List<RectTransform>();

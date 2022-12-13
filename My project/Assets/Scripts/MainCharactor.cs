@@ -163,6 +163,10 @@ public class MainCharactor : MonoBehaviour
             animator.SetTrigger("Die");
             isDie = true;
             GameManager.instance.speed = 0f;
+            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
         }
     }
 
