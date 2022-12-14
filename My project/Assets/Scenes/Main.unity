@@ -562,7 +562,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.016469538, y: -0.0017040372}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -573,7 +573,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0827726, y: 1.521675}
+  m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
 --- !u!95 &532285052
 Animator:
@@ -1502,12 +1502,12 @@ GameObject:
   - component: {fileID: 1286910824}
   - component: {fileID: 1286910823}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: OverMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1286910823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2397,8 +2397,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleList:
-  - {fileID: 2922117160676918790, guid: 519fbc03195fa9b45a4ce69fb2b89c3c, type: 3}
   - {fileID: 3046543013351392500, guid: 59210fba3cae7014382fbd27eb3e41af, type: 3}
+  - {fileID: 4586110497345336868, guid: 8ef3f7e13bb001440aa24142ea7c56fe, type: 3}
+  - {fileID: 2922117160676918790, guid: 519fbc03195fa9b45a4ce69fb2b89c3c, type: 3}
   - {fileID: 4735546064437897532, guid: ea358355e3bfb87499b043e8355e9dee, type: 3}
   pos: {fileID: 1068129180}
   speed: 0
