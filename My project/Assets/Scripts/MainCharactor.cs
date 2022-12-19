@@ -19,6 +19,8 @@ public class MainCharactor : MonoBehaviour
     public bool isDie = false;
     bool leftMove;
     bool rightMove;
+    bool lockleft = false;
+    bool lockright = false;
     [SerializeField] private bool isCanJump = true;
 
 
@@ -89,11 +91,11 @@ public class MainCharactor : MonoBehaviour
     {
         if (!isDie)
         {
-            if (leftMove)
+            if (leftMove && !lockleft)
             {
                 transform.position = transform.position + new Vector3(-1, 0) * Time.deltaTime * speed;
             }
-            else if (rightMove)
+            else if (rightMove && !lockright)
             {
                 transform.position = transform.position + new Vector3(1, 0) * Time.deltaTime * speed;
             }
@@ -143,6 +145,30 @@ public class MainCharactor : MonoBehaviour
         if (collision.gameObject.CompareTag("Floor"))
         {
             isCanJump = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "LockLeft")
+        {
+            lockleft = true;
+        }
+        else if (collision.gameObject.name == "LockRight")
+        {
+            lockright = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "LockLeft")
+        {
+            lockleft = false;
+        }
+        else if (collision.gameObject.name == "LockRight")
+        {
+            lockright = false;
         }
     }
 

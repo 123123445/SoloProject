@@ -17,10 +17,11 @@ public class GameManager : MonoBehaviour
     public Sprite sprite; //캐릭터 스프라이트를 담을 리스트
     public GameObject charactor;
     public GameObject lastCharactor;
+    public GameObject Arrow;
 
     public List<Sprite> spriteList = new List<Sprite>();
-    public List<RectTransform> arrow = new List<RectTransform>();
     public List<Animator> controller = new List<Animator>();
+
 
     #region Singleton
     public static GameManager instance = null;
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
                 if (hit)    //레이가 무언가를 감지하면
                 {
                     charactor = hit.transform.gameObject;
+                    Arrow.SetActive(true);
 
                     if (hit.transform.gameObject.name == "Pink") //캐릭터별로 스프라이트 가져오기
                     {
@@ -71,9 +73,6 @@ public class GameManager : MonoBehaviour
                         controller[0].SetBool("Idle",true);
                         controller[1].SetBool("Idle", false);
                         controller[2].SetBool("Idle", false);
-                        StartCoroutine(ArrowMove(0));
-                        StopCoroutine(ArrowMove(1));
-                        StopCoroutine(ArrowMove(2));
                     }
                     else if (hit.transform.gameObject.name == "Owlet")
                     {
@@ -81,9 +80,6 @@ public class GameManager : MonoBehaviour
                         controller[1].SetBool("Idle", true);
                         controller[0].SetBool("Idle", false);
                         controller[2].SetBool("Idle", false);
-                        StartCoroutine(ArrowMove(1));
-                        StopCoroutine(ArrowMove(0));
-                        StopCoroutine(ArrowMove(2));
                     }
                     else if (hit.transform.gameObject.name == "Dude")
                     {
@@ -91,9 +87,6 @@ public class GameManager : MonoBehaviour
                         controller[2].SetBool("Idle", true);
                         controller[0].SetBool("Idle", false);
                         controller[1].SetBool("Idle", false);
-                        StartCoroutine(ArrowMove(2));
-                        StopCoroutine(ArrowMove(1));
-                        StopCoroutine(ArrowMove(0));
                     }
                 }
             }
@@ -115,32 +108,6 @@ public class GameManager : MonoBehaviour
         else
         {
             speed = maxSpeed;
-        }
-    }
-
-    IEnumerator ArrowMove(int a)
-    {
-        foreach (var item in arrow)
-        {
-            item.gameObject.SetActive(false);
-            item.anchoredPosition = item.anchoredPosition;
-        }
-
-        arrow[a].gameObject.SetActive(true);
-        Vector2 vec2 = new Vector2(0, -0.05f);
-        RectTransform rec = arrow[a].GetComponent<RectTransform>();
-
-        while (true)
-        {
-            rec.anchoredPosition = rec.anchoredPosition + vec2;
-            if (rec.anchoredPosition.y <= 45)
-            {
-                vec2 = vec2 * -1;
-            }else if(rec.anchoredPosition.y >= 50)
-            {
-                vec2 = vec2 * -1;
-            }
-            yield return null;
         }
     }
 }
