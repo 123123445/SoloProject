@@ -189,10 +189,7 @@ public class MainCharactor : MonoBehaviour
             animator.SetTrigger("Die");
             isDie = true;
             GameManager.instance.speed = 0f;
-            if (Input.GetTouch(0).phase == TouchPhase.Ended)
-            {
-                SceneManager.LoadScene("GameOver");
-            }
+            StartCoroutine("GameOver");
         }
     }
 
@@ -202,5 +199,11 @@ public class MainCharactor : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         spriteRenderer.color = new Color(1, 1, 1, 1);
         yield return new WaitForSeconds(0.5f);
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("GameOver");
     }
 }
