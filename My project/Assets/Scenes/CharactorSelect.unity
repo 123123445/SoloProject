@@ -782,7 +782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &533232977
 RectTransform:
   m_ObjectHideFlags: 0
@@ -810,7 +810,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533232976}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -1482,8 +1482,7 @@ MonoBehaviour:
   maxSpeed: 20
   sprite: {fileID: 0}
   charactor: {fileID: 0}
-  lastCharactor: {fileID: 0}
-  Arrow: {fileID: 533232976}
+  Arrow: {fileID: 0}
   spriteList:
   - {fileID: 997894663, guid: c9b1effb5644a654bbc7270e016a08cf, type: 3}
   - {fileID: -2078256224, guid: 62bae0e976e344743b8d5aededea35f2, type: 3}

@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
 
     public Sprite sprite; //캐릭터 스프라이트를 담을 리스트
     public GameObject charactor;
-    public GameObject lastCharactor;
     public GameObject Arrow;
 
     public List<Sprite> spriteList = new List<Sprite>();
@@ -65,7 +64,7 @@ public class GameManager : MonoBehaviour
                 if (hit)    //레이가 무언가를 감지하면
                 {
                     charactor = hit.transform.gameObject;
-                    Arrow.SetActive(true);
+                    Arrow.GetComponent<TextMeshProUGUI>().enabled = true;
 
                     if (hit.transform.gameObject.name == "Pink") //캐릭터별로 스프라이트 가져오기
                     {

@@ -205,5 +205,6 @@ public class MainCharactor : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("GameOver");
+        gameObject.SetActive(false);
     }
 }
