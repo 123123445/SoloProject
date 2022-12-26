@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour
 {
     public float speed;
     public float maxSpeed;
+    public float score;
 
     Vector3 mousePosition;
 
-    public Sprite sprite; //캐릭터 스프라이트를 담을 리스트
+    public Sprite sprite;
     public GameObject charactor;
     public GameObject Arrow;
+    public GameObject mainCharactor;
 
     public List<Sprite> spriteList = new List<Sprite>();
     public List<Animator> controller = new List<Animator>();

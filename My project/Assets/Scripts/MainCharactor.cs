@@ -26,7 +26,7 @@ public class MainCharactor : MonoBehaviour
 
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
-    Animator animator;
+    public Animator animator;
     public List<RuntimeAnimatorController> animatorList = new List<RuntimeAnimatorController>();
 
 
@@ -43,12 +43,14 @@ public class MainCharactor : MonoBehaviour
         if (null == instance)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
+
+        GameManager.instance.mainCharactor = gameObject;
     }
 
     public static MainCharactor Instance
