@@ -22,11 +22,6 @@ public class Score : MonoBehaviour
         if (null == instance)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 
@@ -49,6 +44,7 @@ public class Score : MonoBehaviour
         {
             _score += 2 * speed;
             text.text = _score.ToString("N0");
+            GameManager.instance.score = _score;
         }
     }
 }
