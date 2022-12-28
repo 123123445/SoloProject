@@ -17,6 +17,7 @@ public class MainCharactor : MonoBehaviour
 
     public bool isCanHit = true;
     public bool isDie = false;
+    public bool doubleJump = false;
     bool leftMove;
     bool rightMove;
     bool lockleft = false;
@@ -112,8 +113,13 @@ public class MainCharactor : MonoBehaviour
     #region move
     public void Jump()
     {
-        if (isCanJump && !isDie)
+        if ((isCanJump || doubleJump) && !isDie)
         {
+            if (!isCanJump)
+            {
+                doubleJump = false;
+            }
+            rigid.velocity = Vector2.zero;
             rigid.AddForce(Vector3.up * jumpPower);
             animator.SetTrigger("Jump");
             isCanJump= false;
