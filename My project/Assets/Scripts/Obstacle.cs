@@ -21,7 +21,14 @@ public class Obstacle : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && MainCharactor.instance.isCanHit == true)
         {
             MainCharactor.instance.isCanHit = false;
-            MainCharactor.instance.nowHp--;
+            if (MainCharactor.instance.shield)
+            {
+                MainCharactor.instance.shield = false;
+            }
+            else
+            {
+                MainCharactor.instance.nowHp--;
+            }
         }
     }
 }

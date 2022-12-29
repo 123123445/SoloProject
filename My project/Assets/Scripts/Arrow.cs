@@ -16,7 +16,6 @@ public class Arrow : MonoBehaviour
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
-        
     }
 
     void MoveArrow()

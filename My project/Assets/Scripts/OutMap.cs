@@ -11,7 +11,14 @@ public class OutMap : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             MainCharactor.instance.isCanHit = false;
-            MainCharactor.instance.nowHp--;
+            if (MainCharactor.instance.shield)
+            {
+                MainCharactor.instance.shield = false;
+            }
+            else
+            {
+                MainCharactor.instance.nowHp--;
+            }
             MainCharactor.instance.gameObject.transform.position = teleport.transform.position;
         }
     }

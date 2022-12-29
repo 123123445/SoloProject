@@ -18,6 +18,7 @@ public class MainCharactor : MonoBehaviour
     public bool isCanHit = true;
     public bool isDie = false;
     public bool doubleJump = false;
+    public bool shield = false;
     bool leftMove;
     bool rightMove;
     bool lockleft = false;
