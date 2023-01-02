@@ -1528,9 +1528,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   maxSpeed: 20
+  score: 0
   sprite: {fileID: 0}
   charactor: {fileID: 0}
   Arrow: {fileID: 0}
+  mainCharactor: {fileID: 0}
   spriteList:
   - {fileID: 997894663, guid: c9b1effb5644a654bbc7270e016a08cf, type: 3}
   - {fileID: -2078256224, guid: 62bae0e976e344743b8d5aededea35f2, type: 3}
